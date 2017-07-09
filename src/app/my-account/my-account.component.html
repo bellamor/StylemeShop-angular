@@ -1,0 +1,60 @@
+<div class="content">
+  <div *ngIf="isFormSubmitted">Thank you for registration!</div>
+  <div *ngIf="!isFormSubmitted" class="form-group">
+    <form class="form" [formGroup]="loggedUserForm" novalidate (ngSubmit)="onSubmit($event, userForm)">
+      <div class="form_row">
+        <label for="firstName">First Name:</label>
+        <div>
+          <input formControlName="firstName" id="firstName" (change)="clearControlsValidation('firstName')" (focus)="clearControlsValidation('firstName')"
+            type="text" required class="form-control">
+          <div class="message message_error" *ngIf="isFormSubmitted && userForm.controls['firstName'].invalid && 
+        userForm.controls['firstName'].untouched" class="btn btn-primary btn-lg">
+            first name not valid
+          </div>
+        </div>
+      </div>
+
+      <div class="form_row">
+        <label for="lastName">Last Name:</label>
+        <div>
+          <input formControlName="lastName" id="lastName" (change)="clearControlsValidation('lastName')" (focus)="clearControlsValidation('lastName')"
+            type="text" required class="form-control">
+          <div class="message message_error" *ngIf="isFormSubmitted && userForm.controls['lastName'].invalid && 
+        userForm.controls['lastName'].untouched">
+            last name not valid
+          </div>
+        </div>
+      </div>
+      <div class="form_row">
+        <label for="email">Email:</label>
+        <div>
+          <input formControlName="email" id="email" (change)="clearControlsValidation('email')" type="text" required class="form-control">
+          <div class="message message_error" *ngIf="isFormSubmitted && userForm.controls['email'].invalid && 
+        userForm.controls['email'].untouched">
+            <span *ngIf="userForm.controls['email'].hasError
+         ('required')">
+         Email is required</span>
+
+            <span *ngIf="userForm.controls['email'].hasError
+         ('pattern')">
+         Email is not valid</span>
+          </div>
+          <!--pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z_](2,4)">-->
+        </div>
+      </div>
+      <div class="form_row">
+        <label for="password">Password:</label>
+        <div>
+          <input formControlName="password" id="password" type="password" required class="form-control">
+          <div class="message message_error" *ngIf="isFormSubmitted && userForm.controls['password'].invalid && 
+        userForm.controls['password'].untouched">
+            password is not valid
+          </div>
+        </div>
+      </div>
+      <div class="form_row">
+        <input type="submit" value="Register" class="btn btn-primary btn-lg">
+      </div>
+    </form>
+  </div>
+</div>
