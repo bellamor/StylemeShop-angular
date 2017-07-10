@@ -299,7 +299,7 @@ module.exports = {
         "favicon.ico"
       ],
       "globOptions": {
-        "cwd": "C:\\angular\\StylemeShop\\src",
+        "cwd": "C:\\Users\\Elena.Drozdovsky\\Documents\\GitHub\\StylemeShop-angular\\src",
         "dot": true,
         "ignore": "**/.gitkeep"
       }
