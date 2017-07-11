@@ -15,13 +15,13 @@ import { FactorialPipe } from './pipes/factorial.pipe';
 import { JoinPipe } from './pipes/join.pipe';
 import { SortingUsersPipe } from './pipes/sortUsers.pipe';
 import { FilteringUsersPipe } from './pipes/filterUsers.pipe';
-import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogModule } from './catalog/catalog.module';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RoutingModule } from './modules/routing.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { MyAccountComponent } from './my-account/my-account.component';
-
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -35,7 +35,6 @@ import { MyAccountComponent } from './my-account/my-account.component';
     JoinPipe,
     SortingUsersPipe,
     FilteringUsersPipe,
-    CatalogComponent,
     ContactUsComponent,
     NotFoundComponent,
     RegistrationComponent,
@@ -48,7 +47,9 @@ import { MyAccountComponent } from './my-account/my-account.component';
     FormsModule,
     RoutingModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    CatalogModule,
+    AdminModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent],

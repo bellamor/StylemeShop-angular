@@ -1,3 +1,13 @@
 <p>
   catalog works!
 </p>
+<div>
+ <ul>
+   <li *ngFor="let cat of categories">
+     <button (click)="onSelect(cat)">
+       {{cat?.name}}
+     </button>
+   </li>
+ </ul>
+</div>
+<router-outlet></router-outlet>
