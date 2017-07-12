@@ -9,8 +9,12 @@ const CATALOG_ROUTES: Routes = [
         component: CatalogComponent,
         children: [
             {
-                path: 'id',
-                component: CategoryComponent
+                path: ':id',
+                component: CategoryComponent,
+                    
+                data: {
+                breadcrumb: "Category"
+                }
             }
         ]
     }

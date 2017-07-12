@@ -6,15 +6,18 @@ import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { RegistrationComponent } from '../registration/registration.component';
 import { MyAccountComponent } from '../my-account/my-account.component';
+//mport { CatalogComponent } from '../catalog/catalog.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
     { path: 'Home', component: HomeComponent },
     { path: 'Contact-Us', component: ContactUsComponent },
     { path: 'Register', component: RegistrationComponent },
+ ////   { path: 'Catalog', component: CatalogComponent },
+    
     { path: 'MyAccount', component: MyAccountComponent },
     // not found always at the end
-    { path: '**', component: NotFoundComponent }
+   // { path: '**', component: NotFoundComponent }
 
 ]
 

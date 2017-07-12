@@ -1,5 +1,7 @@
 import { Component, ElementRef, AfterViewChecked, OnInit } from '@angular/core';
 import { AuthorizationComponent } from "./authorization/authorization.component";
+import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
+
 import { User } from "./models/user";
 import { UserService } from './services/user.service';
 
