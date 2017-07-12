@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryComponent } from '../category/category.component';
 import { CatalogComponent } from '../catalog/catalog.component';
-
+import { CanDeactivateGuardService} from '../services/can-deactivate-guard.service'
 const CATALOG_ROUTES: Routes = [
     {
         path: 'Catalog',
@@ -11,10 +11,7 @@ const CATALOG_ROUTES: Routes = [
             {
                 path: ':id',
                 component: CategoryComponent,
-                    
-                data: {
-                breadcrumb: "Category"
-                }
+                canDeactivate:[CanDeactivateGuardService]
             }
         ]
     }

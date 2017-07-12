@@ -27,7 +27,9 @@ export class AppComponent implements AfterViewChecked, OnInit {
   navItems: NavItem[] = [
     { name: 'Home page', link: 'Home' },
     { name: 'Catalog', link: 'Catalog' },
-    { name: 'Contact Us', link: 'Contact-Us' }
+    { name: 'Contact Us', link: 'Contact-Us' },
+    { name: 'Admin', link: 'Admin' }
+    
   ]
 
   constructor(

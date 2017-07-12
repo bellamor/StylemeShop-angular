@@ -1,5 +1,5 @@
     <div class="breadcrumb">
-      <span><a routerLink="" class="breadcrumb">Styleme shop:</a></span>
+      <span><a routerLink="Home">Styleme shop</a></span>
       <span *ngFor="let breadcrumb of breadcrumbs">
         <a [routerLink]="[breadcrumb.url]">{{ breadcrumb.label }}</a>
       </span>

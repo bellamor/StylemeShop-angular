@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from '../home/home.component';
+import {AuthorizationComponent} from '../authorization/authorization.component'
 import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { RegistrationComponent } from '../registration/registration.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
     { path: 'Contact-Us', component: ContactUsComponent },
     { path: 'Register', component: RegistrationComponent },
  ////   { path: 'Catalog', component: CatalogComponent },
-    
+    {path: 'Login', component:AuthorizationComponent},
     { path: 'MyAccount', component: MyAccountComponent },
     // not found always at the end
    // { path: '**', component: NotFoundComponent }

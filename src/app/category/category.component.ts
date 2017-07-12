@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class CategoryComponent implements OnInit {
     category: Category;
-
+    editCategory: Category;
     constructor(
         private categoriesService: CategoriesService,
         private activatedRoute: ActivatedRoute
@@ -25,5 +25,14 @@ export class CategoryComponent implements OnInit {
             err => {
                 console.error(err)
             })
+    }
+
+    canDeactivate()
+    {
+        if (!this.category || this.category.name === this.editCategory.name) {
+            return true;
+        }
+
+        return confirm('Discard changes?');
     }
 }

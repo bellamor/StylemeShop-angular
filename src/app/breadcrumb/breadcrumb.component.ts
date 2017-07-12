@@ -46,11 +46,12 @@ export class BreadcrumbComponent implements OnInit {
       }
 
       let routingURL: string = child.snapshot.url.map(segment => segment.path).join("/");
+      let label: string = `/${child.snapshot.url[child.snapshot.url.length -1].path}`;
 
       url += `/${routingURL}`;
 
       let breadcrumb: Breadcrumb = {
-        label:url,
+        label:label,
         url: url
       };
       breadcrumbs.push(breadcrumb);
