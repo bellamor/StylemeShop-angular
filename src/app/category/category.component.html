@@ -4,3 +4,27 @@
 <div>
  {{category?.description}}
 </div>
+<button (click)="edit(category);">EDIT</button>
+ <form class="form" [formGroup]="editForm" novalidate (ngSubmit)="onSubmit($event, editForm)">
+     <div class="form_row">
+        <label for="id">category id:</label>
+        <div>
+          <input formControlName="id" id="id" type="text"  class="form-control">
+        </div>
+      </div>
+      <div class="form_row">
+        <label for="name">category name:</label>
+        <div>
+          <input formControlName="name" id="name" type="text"  class="form-control">
+        </div>
+      </div>
+      <div class="form_row">
+        <label for="description">category description:</label>
+        <div>
+          <input formControlName="description" id="description" type="text" required class="form-control">
+        </div>
+      </div>
+        <div class="form_row">
+        <input type="submit" value="Save" class="btn btn-primary btn-lg">
+      </div>
+ </form>

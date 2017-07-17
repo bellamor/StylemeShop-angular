@@ -17,7 +17,7 @@ export class CanDeactivateGuardService implements CanDeactivate<CategoryComponen
         state: RouterStateSnapshot) {
         console.log(route.paramMap.get("id"));
         console.log(state.url);
-
+debugger;
         if (!component.category || component.category.name === component.editCategory.name) {
             return true;
         }
