@@ -1,5 +1,7 @@
 import { Component, ElementRef, AfterViewChecked, OnInit } from '@angular/core';
 import { AuthorizationComponent } from "./authorization/authorization.component";
+import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
+
 import { User } from "./models/user";
 import { UserService } from './services/user.service';
 
@@ -25,7 +27,9 @@ export class AppComponent implements AfterViewChecked, OnInit {
   navItems: NavItem[] = [
     { name: 'Home page', link: 'Home' },
     { name: 'Catalog', link: 'Catalog' },
-    { name: 'Contact Us', link: 'Contact-Us' }
+    { name: 'Contact Us', link: 'Contact-Us' },
+    { name: 'Admin', link: 'Admin' }
+    
   ]
 
   constructor(

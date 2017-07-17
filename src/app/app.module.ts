@@ -15,13 +15,16 @@ import { FactorialPipe } from './pipes/factorial.pipe';
 import { JoinPipe } from './pipes/join.pipe';
 import { SortingUsersPipe } from './pipes/sortUsers.pipe';
 import { FilteringUsersPipe } from './pipes/filterUsers.pipe';
-import { CatalogModule } from './catalog/catalog.module';
+
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RoutingModule } from './modules/routing.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { MyAccountComponent } from './my-account/my-account.component';
+
+import { CatalogModule } from './catalog/catalog.module';
 import { AdminModule } from './admin/admin.module';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 
 @NgModule({
@@ -38,17 +41,18 @@ import { AdminModule } from './admin/admin.module';
     ContactUsComponent,
     NotFoundComponent,
     RegistrationComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    BreadcrumbComponent
 
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    CatalogModule,
     RoutingModule,
     ReactiveFormsModule,
     HttpModule,
-    CatalogModule,
     AdminModule
   ],
   providers: [UserService],

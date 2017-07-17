@@ -22,7 +22,7 @@ export class CatalogComponent implements OnInit {
 
   onSelect(category: Category) {
     this.selectedCategory = category;
-    this.router.navigate([category.id]), { relativeTo: this.activatedRoute};
+    this.router.navigate([category.id], { relativeTo: this.activatedRoute});
   }
 
   ngOnInit() {

@@ -18,6 +18,10 @@
       <li class="nav-item"><span class="glyphicon glyphicon-user"></span> <a class="nav-link" routerLink="MyAccount">My Account</a></li>
     </ul>
   </div>
+  <div>
+    <a [routerLink]="['/Login']">New log in</a>
+    
+  </div>
 
 
 </nav>
@@ -25,6 +29,9 @@
 <div class="login-form" *ngIf="isLoginFormShown">
   <!--<app-authorization [user]="user" (onAlerted)="showAlert($event)"></app-authorization>-->
   <app-authorization></app-authorization>
+</div>
+<div>
+  <app-breadcrumb></app-breadcrumb>
 </div>
 
 <router-outlet></router-outlet>
