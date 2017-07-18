@@ -25,10 +25,10 @@ export class AppComponent implements AfterViewChecked, OnInit {
   title: string = "StyleMeShop";
   users: User[];
   navItems: NavItem[] = [
-    { name: 'Home page', link: 'Home' },
-    { name: 'Catalog', link: 'Catalog' },
-    { name: 'Contact Us', link: 'Contact-Us' },
-    { name: 'Admin', link: 'Admin' }
+    { name: 'Home page', link: 'home' },
+    { name: 'Catalog', link: 'catalog' },
+    { name: 'Contact Us', link: 'contact-us' },
+    { name: 'Admin', link: 'admin' }
     
   ]
 

@@ -1,23 +1,29 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { CatalogComponent } from '../catalog/catalog.component';
-import { CategoryComponent } from '../category/category.component';
-import { CategoriesService } from '../services/categories.service';
-import { CatalogRoutingModule} from '../catalog/catalog-routing.module';
-import { CanDeactivateGuardService} from '../services/can-deactivate-guard.service';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { CatalogComponent } from "./catalog.component";
+import { CategoryComponent } from "../category/category.component";
+
+import { CatalogRoutingModule } from "./catalog-routing.module";
+import { CategoriesService } from "../services/categories.service";
+import { CanDeactivateGuardService } from "../services/can-deactivate-guard.service";
+import { CatalogResolverService } from "../services/catalog-resolver.service";
 
 @NgModule({
+    imports: [
+        CommonModule,
+        CatalogRoutingModule,    
+    ],
     declarations: [
         CatalogComponent,
         CategoryComponent
     ],
-    imports: [
-        CommonModule,
-        CatalogRoutingModule,
-        ReactiveFormsModule
-    ],
-    providers:[CategoriesService, CanDeactivateGuardService]
+    providers: [
+        CategoriesService,
+        CanDeactivateGuardService,
+        CatalogResolverService
+    ]
 })
+
 export class CatalogModule { }

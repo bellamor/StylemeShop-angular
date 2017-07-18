@@ -1,5 +1,5 @@
-<!--<div class="form-group">
-    <form [formGroup]="authorizationForm" class="form" *ngIf="user == null">
+<div class="form-group">
+    <form [formGroup]="loginForm" class="form" *ngIf="user == null">
         <div class="full-width">
             <input type="email" formControlName="email"  placeholder="Email" class="form-control">
         </div>
@@ -8,13 +8,13 @@
         </div>
 
         <div>
-            <input type="submit" value="Sign In" class="btn btn-primary btn-lg">
+              <button class="btn btn-primary btn-lg" (click) = "logIn()">Log In</button>
         </div>
     </form>
-</div>-->
+</div>
 <div>
-    Hello,<!--{{user?.firstName}}-->{{message}}
-    <button (click) = "logIn()">Log In</button>
-    <button (click) = "logOut()">Log Out</button>
+    {{message}}
+    <!--button (click) = "logIn()">Log In</button>
+    <button (click) = "logOut()">Log Out</button-->
     
 </div>

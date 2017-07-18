@@ -1,47 +1,45 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from '../admin/admin.component';
-import { CategoriesManagementComponent } from '../categories-management/categories-management.component';
-import { UsersManagementComponent  } from '../users-management/users-management.component';
-import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { AuthGuardService } from '../services/auth-guard.service';
+import { AdminComponent } from "./admin.component";
+import { CategoriesManagementComponent } from "../categories-management/categories-management.component";
+import { UsersManagementComponent } from "../users-management/users-management.component";
+import { AdminDashboardComponent } from "../admin-dashboard/admin-dashboard.component";
+
+import { AuthGuardService } from "../services/auth-guard.service";
 
 const ADMIN_ROUTES: Routes = [
-    {
-        path: 'Admin',
+    { 
+        path: "", 
         component: AdminComponent,
-        canActivate: [AuthGuardService],
         children: [
-            {
-                path: '',
-                canActivateChild: [AuthGuardService],
+            {   
+                path: "",
                 children: [
-                    {
-                        path: 'categories',
+                    { 
+                        path: "categories",
                         component: CategoriesManagementComponent
                     },
-                    {
-                        path: 'users',
+                    { 
+                        path: "users",
                         component: UsersManagementComponent
                     },
-                    {
-                        path: 'admin-dashboard',
+                    { 
+                        path: "",
                         component: AdminDashboardComponent
-                    },
+                    }
                 ]
             }
-        ]
+        ] 
     }
 ]
 
-@NgModule(
-    {
-        imports: [RouterModule.forChild(ADMIN_ROUTES)],
-        exports: [RouterModule]
-    }
-)
-
-export class AdminRoutingModule {
-
-}
+@NgModule({
+    imports: [
+        RouterModule.forChild(ADMIN_ROUTES)
+    ],
+    exports: [
+        RouterModule
+    ]
+})
+export class AdminRoutingModule { }

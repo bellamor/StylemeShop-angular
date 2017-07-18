@@ -4,6 +4,7 @@ export class User {
     public lastName: string;
     public email: string;
     public password: string;
+    public role:string;
     public state?: string;
 
     constructor
@@ -13,6 +14,7 @@ export class User {
         lastName?: string,
         email?: string,
         password?: string,
+        role?: string,
         state?: string
         ) {
         this.id = id;
@@ -20,6 +22,7 @@ export class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.role = role;
         this.state = state;
     }
 }

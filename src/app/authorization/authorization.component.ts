@@ -12,14 +12,13 @@ import { Router } from '@angular/router';
     styleUrls: ["./authorization.component.styl"]
 })
 
-export class AuthorizationComponent {//implements OnInit {
+export class AuthorizationComponent implements OnInit {
     // @Input() user: User;
 
     // @Output() onAlerted = new EventEmitter<string>();
 
     // alertMessage: string;
 
-    // authorizationForm: FormGroup;
 
     // constructor(
     //     private formBuilder: FormBuilder
@@ -30,40 +29,61 @@ export class AuthorizationComponent {//implements OnInit {
     //     this.onAlerted.emit(this.alertMessage);
     // }
 
-    //ngOnInit() {
-    //this.authorizationForm = this.formBuilder.group({
-    //  email: [null, [Validators.required, Validators.pattern(RegExpCommon.EMAIL)]],
-    //password: [null, Validators.required]
-    //  } 
-    //}
-    message:string;
+
+    message: string;
+    loginForm: FormGroup;
+    user: User;
+
     constructor(
         public authService: AuthService,
-        public router: Router
+        public router: Router,
+        private formBuilder: FormBuilder
     ) { }
+
+    ngOnInit() {
+        this.loginForm = this.formBuilder.group({
+            email: [null, [Validators.required, Validators.pattern(RegExpCommon.EMAIL)]],
+            password: [null, Validators.required]
+        });
+
+    }
 
     logIn() {
         this.message = 'Logging in...';
-        this.authService.logIn().subscribe(
-            () => {
-                this.setMessage();
-                if (this.authService.isLoggedIn) {
-                    let redirect = this.authService.redirectUrl ?
-                        this.authService.redirectUrl : '/Admin';
+        let email = this.loginForm.controls['email'].value;
+        let pass = this.loginForm.controls['password'].value;
+        if (this.loginForm.valid) {
+            this.authService.logIn(email, pass).subscribe(
+                user => {
+                    document.cookie = `email=${email};pass =${pass}`
+                    this.user = user;
+                    this.setMessage();
+                    if (this.authService.isLoggedIn) {
+                        let redirect: string = this.authService.redirectUrl ?
+                            this.authService.redirectUrl : '/Admin';
 
-                    this.router.navigate([redirect])
+                        this.router.navigate([redirect])
+                    }
+                },
+                error => {
+                    this.setErrorMessage();
+                    return error;
                 }
-            }
-        )
+            )
+        }
+
     }
 
-    logOut()
-    {
+    logOut() {
         this.authService.logOut();
+        this.setMessage();
     }
 
-    setMessage()
-    {
+    setMessage() {
         this.message = `You are loged ${this.authService.isLoggedIn ? 'in' : 'out'}`
     }
+    setErrorMessage() {
+        this.message = 'Login failed';
+    }
+
 }

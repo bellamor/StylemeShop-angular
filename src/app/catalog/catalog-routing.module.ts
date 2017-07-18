@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CategoryComponent } from '../category/category.component';
-import { CatalogComponent } from '../catalog/catalog.component';
-import { CanDeactivateGuardService} from '../services/can-deactivate-guard.service'
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+
+import { CatalogComponent } from "./catalog.component";
+import { CategoryComponent } from "../category/category.component";
+
+import { CanDeactivateGuardService } from "../services/can-deactivate-guard.service";
+
+import { CatalogResolverService } from "../services/catalog-resolver.service";
+
 const CATALOG_ROUTES: Routes = [
-    {
-        path: "catalog",
+    { 
+        path: "catalog", 
         component: CatalogComponent,
         children: [
             {
-                path: ':id',
-<<<<<<< HEAD
-                component: CategoryComponent
-=======
+                path: ":id",
                 component: CategoryComponent,
-                canDeactivate:[CanDeactivateGuardService]
->>>>>>> 3bc083191a22083089e270c25cc8c4998ef0b160
+                resolve: {
+                    category: CatalogResolverService
+                }
+                // canDeactivate: [CanDeactivateGuardService]
             }
-        ]
+        ] 
     }
 ]
 
@@ -29,7 +33,4 @@ const CATALOG_ROUTES: Routes = [
         RouterModule
     ]
 })
-
-export class CatalogRoutingModule {
-
-}
+export class CatalogRoutingModule { }
